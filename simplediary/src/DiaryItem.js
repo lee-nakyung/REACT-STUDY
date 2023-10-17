@@ -1,14 +1,18 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState,React} from 'react';
 // react hooks
 const DiaryItem = ({
   onRemove,
   id,
-  author,
+  author, //두개는 함수, 두개는 데이터 
   onEdit,
   content,
   emotion,
   created_date
 }) => {
+
+  useEffect(()=>{
+    console.log(`${id}번 째 아이템 렌더!`);
+  });
 
   const [isEdit, setIsEdit]=useState(false); //true 와 false boolean 형태를 갖게된다.
   const toggleIsEdit =()=>setIsEdit(!isEdit); //토글 반전연산 isedit이 true이면 수정중이라고 간주해서 수정 폼 띄움. 
@@ -75,4 +79,4 @@ const DiaryItem = ({
   );
 };
 
-export default DiaryItem;
+export default React.memo(DiaryItem);
