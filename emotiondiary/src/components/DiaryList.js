@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import MyButton from "./MyButton";
 import { useNavigate } from "react-router-dom";
 import DiaryItem from "./DiaryItem";
+import React from "react";
 
 const sortOptionList = [//최신순
     {value:"latest", name:"최신순"},
@@ -14,7 +15,8 @@ const filterOptionList = [//모두다
 {value:"bad", name:" 안 좋은 감정만"},
 ];
 
-const ControlMenu = ({value, onChange, optionList}) => {
+const ControlMenu = React.memo(({value, onChange, optionList}) => {
+
     return (
         <select className="ControlMenu"
         value={value} onChange={(e) => onChange(e.target.value)}>
@@ -25,13 +27,14 @@ const ControlMenu = ({value, onChange, optionList}) => {
             ))}
         </select>
     );
-};
+});
 
 const DiaryList = ({diaryList}) => {
     const navigate = useNavigate();
     const [sortType, setSortType] = useState('latest');  //최신순
     const [filter,setFilter]= useState("all"); //전부다
 
+    
     const getPropcessedDiaryList = () => {
 
         const filterCallBack = (item) => {

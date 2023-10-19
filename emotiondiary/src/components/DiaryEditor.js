@@ -2,7 +2,7 @@ import MyHeader from "./MyHeader";
 import MyButton from "./MyButton"
 import { DiaryDispatchContext } from "../App";
 import {useNavigate } from "react-router-dom";
-import { useState, useRef, useContext, useEffect } from "react";
+import { useState, useRef, useContext, useEffect, useCallback } from "react";
 import EmotionItem from "./EmotionItem";
 import {emotionList} from "../util/emotion";
 import {getStringDate} from "../util/date";
@@ -18,9 +18,9 @@ const DiaryEditor = ({isEdit,originData}) =>{
     const [date,setDate]=useState(getStringDate(new Date()));
 
     const {onCreate, onEdit, onRemove} =useContext(DiaryDispatchContext);
-    const handleclickEmote=(emotion)=>{
+    const handleclickEmote=useCallback((emotion)=>{
         setEmotion(emotion);
-    }
+    }, []);
 
     const navigate=useNavigate();
 
