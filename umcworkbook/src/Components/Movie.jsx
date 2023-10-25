@@ -17,7 +17,7 @@ function Movie(props) {
             {props.movieData.title}
             <br></br>
             <br></br>
-            {props.movieData.overview}
+            {props.overview}
         </Overview>
         </MovieContainer>
     );
