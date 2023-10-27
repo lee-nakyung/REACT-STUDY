@@ -1,11 +1,13 @@
-import { createBrowserRouter } from "react-router-dom";
-import Root from "./Root";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-const Router = createBrowserRouter([
-    {
-        path:"/",
-        element: <Root />
-    }
-])
+function Router(){
+    return <BrowserRouter>
+    <Switch>
+        <Route path="/:coinId">
+            <Route path="/"></Route>
+        </Route>
+>    </Switch>
+    </BrowserRouter>
+}
 
 export default Router;
