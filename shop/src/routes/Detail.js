@@ -4,7 +4,10 @@ import { useParams } from "react-router-dom";
 function Detail(props){
 
     useEffect(()=>{
-        setTimeout(()=>{setAlert(false) }, 2000)
+        let a = setTimeout(()=>{setAlert(false) }, 2000)
+        return ()=>{
+            clearTimeout(a);
+        }
     },[])
    
     let [alert,setAlert]=useState(true);
