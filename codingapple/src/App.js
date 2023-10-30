@@ -44,6 +44,8 @@ function App() {
       {
         modal === true ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목}/> : null
       }
+
+      <Modal2/>
     </div>
   );
 }
@@ -73,7 +75,11 @@ class Modal2 extends React.Component{
   }
   render(){
     return (
-      <div>안녕 {this.state.name}</div>
+      <div>안녕 {this.state.age}
+      <button onClick={()=>{
+        this.setState({age:21})
+      }}>버튼</button>
+      </div>
     )
   }
 }
