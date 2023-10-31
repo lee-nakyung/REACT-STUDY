@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {Nav} from 'react-bootstrap';
+
 
 function Detail(props){
 
+    
     useEffect(()=>{
         let a = setTimeout(()=>{setAlert(false) }, 2000)
         return ()=>{
@@ -11,7 +14,8 @@ function Detail(props){
     },[])
    
     let [alert,setAlert]=useState(true);
-    let[count,setCount]=useState(0);
+    
+    let [탭,탭변경]=useState(0);
 
     let {id} = useParams();
     id=parseInt(id);
@@ -24,8 +28,7 @@ function Detail(props){
                 2초 이내 구매시 할인 
                 </div>:null
             }
-            {count}
-            <button onClick={()=>{setCount(count+1)}}>버튼</button>
+            
             <div className="row">
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" alt="Shoe Image"/>
@@ -45,8 +48,40 @@ function Detail(props){
                     }
                 </div>
             </div>
+            <Nav variant="tabs"  defaultActiveKey="link0">
+    <Nav.Item>
+      <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link0">버튼0</Nav.Link>
+    </Nav.Item>
+    <Nav.Item>
+      <Nav.Link onClick={()=>{탭변경(1)}}eventKey="link1">버튼1</Nav.Link>
+    </Nav.Item>
+    <Nav.Item>
+      <Nav.Link onClick={()=>{탭변경(2)}} eventKey="link2">버튼2</Nav.Link>
+    </Nav.Item>
+</Nav>
+<TabContent shoes={props.shoes} 탭={탭}/>
+
         </div>
     )
 }
+
+function TabContent({ 탭 , shoes}){
+
+    let[fade,setFade]=useState('')
+    
+
+    useEffect(()=>{
+        let a=setTimeout(()=>{setFade('end')}, 100)
+        
+        return ()=>{
+            clearTimeout(a)
+            setFade('')
+        }
+    },[탭])
+    return <div className={'start' + fade}>
+        {[<div>내용0</div>,<div>내용1</div>,<div>내용2</div>][탭]}
+    </div>
+}
+
 
 export default Detail;
