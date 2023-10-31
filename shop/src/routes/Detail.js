@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {Nav} from 'react-bootstrap';
-
+import { addItem } from "../store";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "react";
 
 function Detail(props){
 
+    let dispatch = useDispatch()
     
     useEffect(()=>{
         let a = setTimeout(()=>{setAlert(false) }, 2000)
@@ -40,7 +43,10 @@ function Detail(props){
                                 <h4 className="pt-5">{props.shoes[id].title}</h4>
                                 <p>{props.shoes[id].content}</p>
                                 <p>{props.shoes[id].price}</p>
-                                <button className="btn btn-danger">주문하기</button>
+                                <button className="btn btn-danger"
+                                onClick={()=>{
+                                    dispatch(addItem({id:1,name:'Red Knot',count:1}))
+                                }}>주문하기</button>
                             </>
                         ) : (
                             <p>해당 상품을 찾을 수 없습니다.</p>
