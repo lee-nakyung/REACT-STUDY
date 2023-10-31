@@ -8,7 +8,10 @@ const Ad = (props) => {
 
   return (
     <div>
-      <img src={AdImage} alt="Advertisement" />
+      <img style={{  
+                         width:"1000px",
+                    }}
+      src={AdImage} alt="Advertisement" />
     </div>
   );
 };
