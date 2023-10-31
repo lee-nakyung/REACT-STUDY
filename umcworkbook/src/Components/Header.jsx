@@ -1,21 +1,19 @@
-import React from 'react';
-import { Link as RouterLink} from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom'; 
 import styled from 'styled-components';
-
 
 const HeaderContainer = styled.div`
     background-color: #1c1c55;
     display: flex;
     align-items: center;
-    padding: 10px 20px;  // 상하좌우 패딩 추가
+    padding: 10px 20px;
 `;
-
 
 const StyledLink = styled(RouterLink)`
     color: white;
     margin-left: 20px; 
     text-decoration: none; 
-`
+`;
 
 const Buttons = styled.div`
     border-radius:20px;
@@ -23,12 +21,21 @@ const Buttons = styled.div`
     color:black;
     padding: 3px 20px;
     margin-left:20px;
-`
+    cursor: pointer; 
+`;
+
+const LoginNotice = styled.div`
+    color:white;
+    margin-left:20px;
+`;
 
 function Header() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
-    let [login,SetLogin]=useState(true);
-    
+    const handleLoginToggle = () => {
+        setIsLoggedIn(!isLoggedIn); 
+    }
+
     return (
         <>
         <HeaderContainer>
@@ -48,7 +55,12 @@ function Header() {
             <StyledLink to="/movie">영화</StyledLink> 
             <StyledLink to="/">TV 프로그램</StyledLink>
             <StyledLink to="/">인물</StyledLink>
-            <Buttons>로그인</Buttons>
+            <Buttons onClick={handleLoginToggle}>
+                {isLoggedIn ? '로그아웃' : '로그인'}
+            </Buttons>
+            <LoginNotice>
+                {isLoggedIn ? '환영합니다!' : '로그인 해주세요!!!'}
+            </LoginNotice>
         </HeaderContainer>
         </>
     )
