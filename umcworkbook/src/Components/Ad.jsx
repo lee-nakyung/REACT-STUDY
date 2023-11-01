@@ -9,7 +9,9 @@ const Ad = (props) => {
   return (
     <div>
       <img style={{  
-                         width:"1000px",
+                        width:'1455px',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
                     }}
       src={AdImage} alt="Advertisement" />
     </div>
