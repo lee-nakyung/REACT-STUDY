@@ -10,7 +10,7 @@ const Container = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
   display: inline-block; 
   margin-top: 20px; 
-  justify-content: center;
+  
 `;
 
 
