@@ -5,7 +5,7 @@ const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 function Movie(props) {
     return (
-      <Link to={`/movie/${movieData.title}`}>
+      // <Link to={`/movie/${movieData.title}`}>
       <MovieContainer>
         <img src={`${BASE_IMAGE_URL}${props.movieData.poster_path}`} alt={props.movieData.title} />
         
@@ -21,7 +21,7 @@ function Movie(props) {
             {props.overview}
         </Overview>
         </MovieContainer>
-        </Link>
+        // </Link>
     );
 }
 

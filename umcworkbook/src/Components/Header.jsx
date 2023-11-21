@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom'; 
+import { Link as RouterLink, useNavigate } from 'react-router-dom'; 
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
@@ -31,10 +31,15 @@ const LoginNotice = styled.div`
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const navigate = useNavigate();
 
     const handleLoginToggle = () => {
-        setIsLoggedIn(!isLoggedIn); 
-    }
+        if (!isLoggedIn) {
+            navigate('/login'); 
+        } else {
+            setIsLoggedIn(false); 
+        }
+    };
 
     return (
         <>

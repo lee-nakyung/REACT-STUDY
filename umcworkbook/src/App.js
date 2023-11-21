@@ -4,19 +4,23 @@ import Header from "./Components/Header";
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import MovieDetail from './pages/Detail';
-
+import Login from './pages/Login';
 
 function App() {
 
  
 
   return (
+
+    
     <BrowserRouter>
     <Header />
+    
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/movie" element={<Movies/>}/>
       <Route path="/movie/:title" element={<MovieDetail />} />
+      <Route path="/login" element={<Login />} />
       {/* <Route path="/person" element={<Celebrity />} />
       <Route path="/tv" element={<TV />} />
       <Route path="/notFound" element={<NotFound />} /> */}
