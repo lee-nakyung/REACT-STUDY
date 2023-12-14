@@ -17,21 +17,27 @@ const LoginComponent = () => {
     setLoading(true); 
 
     try {
-      
-      const response = await axios.post('http://localhost:8000/user/login', {
-        id: userId,
-        pw: password
-      });
-     
-      console.log(response.data);
+        const response = await axios.post('http://localhost:8000/user/login',   
+        {
+            id: userId,  
+            pw: password  
+        },
+        {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
 
-    
-
+        localStorage.setItem('token', response.data.result.AccessToken);
+        localStorage.setItem('id', response.data.result.userId);
+       
+        console.log(response);
     } catch (error) {
-      console.error("Error fetching weather data:", error);
+        console.error(error);
+        
+    } finally {
+        setLoading(false); 
     }
-
-    setLoading(false); 
   };
 
   return (
