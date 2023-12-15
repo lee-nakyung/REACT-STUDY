@@ -3,14 +3,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Navbar, Container, Nav} from 'react-bootstrap';
 import {useState} from "react";
 import data from "./data.js";
+import {Routes, Route, Link} from 'react-router-dom'
+import Detail from './Detail.js';
 
 function App() {
 
   let [shoes]= useState(data)
-  console.log(shoes[0].title);
+ 
 
   return (
     <div className="App">
+
+      <Routes>
+        <Route path="/" element = {<div>메인페이지임</div>}/>
+        <Route path="/detail" element = {<div>상세페이지임</div>}/>
+      </Routes>
     
      <Navbar bg="dark" data-bs-theme="dark">
         <Container>
@@ -22,13 +29,21 @@ function App() {
         </Container>
       </Navbar>
 
+    
+
       <div className='main-bg'></div>
         <div className="container">
           <div className="row">
-            <Card shoes={shoes}></Card>
-            <Card shoes={shoes}></Card>
-            <Card shoes={shoes}></Card>
-           
+            {/* <Card shoes={shoes[0]} i={1}></Card>
+            <Card shoes={shoes[1]} i={2}></Card>
+            <Card shoes={shoes[2]} i={3}></Card> */}
+           {
+            shoes.map((a,i)=>{
+              return (
+                <Card shoes = {shoes[i]} i={i+1}></Card>
+              )
+            })
+           }
           </div>
         </div>
         
@@ -41,19 +56,9 @@ function App() {
 function Card(props){
   return (
     <div className="col-md-4">
-      <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%"/>
-      <h5>{props.shoes[0].title}</h5>
-      <p>{props.shoes[0].price}</p>
-    </div>  
-    )
-}
-
-function Card2(props){
-  return (
-    <div className="col-md-4">
-      <img src="https://codingapple1.github.io/shop/shoes2.jpg" width="80%"/>
-      <h5>{props.shoes[0].title}</h5>
-      <p>{props.shoes[0].price}</p>
+      <img src={'https://codingapple1.github.io/shop/shoes'+props.i+'.jpg'} width="80%"/>
+      <h5>{props.shoes.title}</h5>
+      <p>{props.shoes.price}</p>
     </div>  
     )
 }
