@@ -9,6 +9,7 @@ function App() {
   let [like, setLike] = useState(0);
   let [modal, setModal] = useState(false);
   let [titles, setTitles]=useState(0);
+  let [blank, setBlank]=useState('');
 
   [1, 2, 3].map(function () {
     return '1233211';
@@ -28,19 +29,25 @@ function App() {
               <span onClick={()=>{setLike(like+1)}}>👍</span>{like}
               </h4>
               <p>2월 17일 발행</p>
+              <button onClick={()=>{
+                let copy=[...title];
+                copy.splice(i,1);
+                setTitle(copy);
+              }}>삭제</button>
               <hr/>
               </div>
           )
         })
       }
 
-      //input2부터.
-
-      <button onClick={()=>{setTitles(0)}}>글제목0</button>
-      <button onClick={()=>{setTitles(1)}}>글제목1</button>
-      <button onClick={()=>{setTitles(2)}}>글제목2</button>
-
-      <input onScroll={} onChange={()=>{console.log(1)}}/>
+      <input onChange={(e)=>{
+        setBlank(e.target.value);
+      }}/>
+      <button onClick={()=>{
+        let copy=[...title];
+        copy.unshift(blank);
+        setTitle(copy);
+      }}>글발행</button>
 
      {
       modal == true? <Modal titles={titles} color="orange" title={title}/>:null
