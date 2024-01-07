@@ -14,6 +14,7 @@ function Detail(props){
     let product = props.shoes.find(x=> x.id==id);
     let [count,setCount]=useState(0);
     let [alert, setAlert]=useState(true);
+    let [tab, setTab]=useState(0)
 
     useEffect(()=>{
         let a = setTimeout(()=>{setAlert(false)},2000)
@@ -54,11 +55,20 @@ function Detail(props){
       <Nav.Link eventKey="link2">버튼2</Nav.Link>
     </Nav.Item>
 </Nav>
-<div>내용0</div>
-<div>내용1</div>
-<div>내용2</div> 
+{
+    tab == 0 ? <div>내용0</div>:null
+}
+{
+    tab == 1 ? <div>내용1</div>:null
+}
+{
+    tab == 2 ? <div>내용2</div>:null
+}
+
         </div>
     )
 }
+
+//리액트에서 탭 ui만들기
 
 export default Detail;
