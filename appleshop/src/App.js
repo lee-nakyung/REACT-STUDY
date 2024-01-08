@@ -6,10 +6,13 @@ import data from "./data.js";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Detail from './routes/Detail.js';
 import axios from 'axios'
+import Cart from './routes/Cart.js'
+
 
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+  let [count]=useState([10,11,12]);
 
   return (
     <>
@@ -47,7 +50,12 @@ function App() {
             }}>버튼</button>
           </>
         } />
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        
+        <Route path="/detail/:id" element={
+          <Detail shoes={shoes}/>
+        }/>
+
+        <Route path="/cart" element = {<Cart/>}/>
       </Routes>
     </>
   )

@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import { useEffect } from "react";
 import { useState } from "react";
 import { Nav } from "react-bootstrap";
+import {Context1} from "./../App.js"
+import { useContext } from "react";
 
 function Detail(props){
 
   
 
-    
 
     let {id}=useParams();
     let product = props.shoes.find(x=> x.id==id);
-    let [count,setCount]=useState(0);
     let [alert, setAlert]=useState(true);
     let [tab, setTab]=useState(0)
 
@@ -30,8 +30,8 @@ function Detail(props){
             <div className="alert alert-warning">
                 2초 이내 구매시 할인
             </div>
-            {count}
-            <button onClick={()=>{setCount(count+1)}}>버튼</button>
+           
+            {/* <button onClick={()=>{setCount(count+1)}}>버튼</button> */}
             <div className="row">
                 <div className="col-md-6">
                     <img src="https://codingapple1.github.io/shop/shoes0.jpg" width="100%"/>
@@ -46,29 +46,41 @@ function Detail(props){
 
             <Nav variant="tabs"  defaultActiveKey="link0">
     <Nav.Item>
-      <Nav.Link eventKey="link0">버튼0</Nav.Link>
+      <Nav.Link onClick={()=>{setTab(0)}} eventKey="link0">버튼0</Nav.Link>
     </Nav.Item>
     <Nav.Item>
-      <Nav.Link eventKey="link1">버튼1</Nav.Link>
+      <Nav.Link onClick={()=>{setTab(1)}} eventKey="link1">버튼1</Nav.Link>
     </Nav.Item>
     <Nav.Item>
-      <Nav.Link eventKey="link2">버튼2</Nav.Link>
+      <Nav.Link onClick={()=>{setTab(2)}} eventKey="link2">버튼2</Nav.Link>
     </Nav.Item>
 </Nav>
-{
-    tab == 0 ? <div>내용0</div>:null
-}
-{
-    tab == 1 ? <div>내용1</div>:null
-}
-{
-    tab == 2 ? <div>내용2</div>:null
-}
+<TabContent shoes={props.shoes} tab={tab}/>
+
 
         </div>
     )
 }
 
-//리액트에서 탭 ui만들기
+function TabContent({tab, shoes}){
+    
+
+    let [fade, setFade] = useState('')
+  
+    useEffect(()=>{
+      setTimeout(()=>{ setFade('end') }, 100)
+    return ()=>{
+      setFade('')
+    }
+    }, [tab])
+  
+    return (
+      <div className={'start ' + fade}>
+        { [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab] }
+      </div>
+    )
+  }
+
+
 
 export default Detail;
