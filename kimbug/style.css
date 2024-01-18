@@ -53,11 +53,16 @@ p{
     letter-spacing:-0.05em;
     font-weight:700;
     background-color:#3040c4;
+    transition: opacity 300ms ease-in-out;
 }
 
 .fill-button.inverted{
     color:#3040c4;
     background-color:#fff;
+}
+
+.fill-button:hover{
+    opacity:0.5;
 }
 
 /* Landing */
@@ -96,10 +101,65 @@ p{
     margin-right:8px;
 }
 
+.service{
+    padding: 80px 0;
+    background-color:#f4f5f7;
+}
+
+.service .col-12:first-child{
+    margin-bottom:40px;
+}
+
+.service-title{
+    margin-bottom:16px;
+    font-size:22px;
+    line-height:1.3636363636;
+    letter-spacing:-0.04em;
+    color:#2b292d;
+}
+
+/* >=768px (Desktop) */
 @media screen and (min-width:768px){
     p{
         font-size:22px;
         line-height:1.3636363636;
+    }
+
+    .fill-button{
+        width:160px;
+        height:56px;
+        font-size:18px;
+        line-height:1.5555555556;
+    }
+
+    .landing-content{
+        height:auto;
+        padding:120px 0;
+    }
+
+    .landing-title{
+        margin-bottom:32px;
+        font-size:70px;
+        line-height:1.0285714286;
+    }
+
+    .landing-desc{
+        margin-bottom:32px;
+    }
+
+    .landing .button-group .fill-button:first-child{
+        margin-right:16px;
+    }
+
+    /* Service */
+
+    .service .col-12:first-child{
+        margin-bottom:0;
+    }
+    
+    .service-title{
+        font-size:26px;
+        line-height:1.307
     }
 }
 

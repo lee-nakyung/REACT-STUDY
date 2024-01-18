@@ -1,29 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
-import PhotoList from "./photo_list";
 import { useState } from 'react';
 import { useEffect } from 'react';
+import axios from 'axios';
+import UserData from './UserData';
+
 function App() {
 
-  const [photos, setPhotos]=useState([]);
+  const [users, setUsers]=useState([]);
 
   useEffect(()=>{
-    const requestOptions={
-      method:'GET',
-      redirect:'follow'
-    };
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(response=>{
+      console.log(response)
+      setUsers(response.data);
+    })
+  },[]);
 
-    fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
-    .then(response=>response.json())
-    .then(result=>setPhotos(result))
-    .catch(error=>console.log('error'.error))
-  },[])
+  useEffect(()=>{
+    console.log(users);
+  },[users])
 
   return (
-    <div className="App">
-      <PhotoList photos={photos}/>
+    <div>
+      <UserData users={users}/>
     </div>
-  );
+  )
 }
 
 export default App;
