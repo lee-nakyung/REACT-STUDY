@@ -1,37 +1,69 @@
-import React, { useReducer } from 'react';
+import styled from "styled-components";
+import "./App.css";
+import ToDoButton from "./ToDoButton"
+import { useState } from "react";
+import { useEffect } from "react";
 
-function reducer(state, action) {
-  return {
-    ...state,
-    [action.name]: action.value
-  };
-}
+function App() {
+  let Btn = styled.button`
+    margin-top: 2rem;
+    border: none;
+    width: 5rem;
+    background: ${(props) => props.bg};
+    cursor: pointer;
+  `;
 
-const Info = () => {
-  const [state, dispatch] = useReducer(reducer, {
-    name: '',
-    nickname: ''
-  });
+  const [list, setList] = useState([]);
+  const [userInput, setUserInput] = useState("");
 
-  const { name, nickname } = state; 
-  const onChange = e => {
-    dispatch(e.target); 
-  };
+  useEffect(() => {
+    console.log(userInput); 
+  }, [userInput]); 
+
+  function todoContent(event) {
+    setUserInput(event.target.value);
+  }
+
+  function addList() {
+    if (userInput.trim() === "") {
+      // 사용자가 아무 것도 입력하지 않았으면 아무것도 하지 않음
+      return;
+    }
+  
+    setList((prevList) => [...prevList, userInput]);
+    setUserInput(""); // 항목을 추가한 후 입력 필드 초기화
+  }
+  
+
+  function deleteList(index) {
+    setList((prevList) => {
+      return prevList.filter((_, i) => i !== index);
+    });
+  }
+  
 
   return (
-    <div>
-      <div>
-        <input name="name" value={name} onChange={onChange} />
-        <input name="nickname" value={nickname} onChange={onChange} />
+    <div className="App">
+      <div className="buttonBox">
+        <Btn bg="#FF9F9F">Add</Btn>
+        <Btn bg="aliceblue">Save</Btn>
       </div>
-      <div>
-        <b>이름:</b> {name}
-      </div>
-      <div>
-        <b>닉네임:</b> {nickname}
-      </div>
-    </div> 
+      <button className="plusButton" onClick={addList}>
+        Plus
+      </button>
+      {list.map((item, index) => {
+        return (
+          <ToDoButton
+            key={index}
+            title={item}
+            index={index}
+            addContent={todoContent}
+            delete={() => deleteList(index)}
+          />
+        );
+      })}
+    </div>
   );
 }
 
-export default Info;
+export default App;
