@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import React from "react";
 import Bugi from "../images/Bugi.png";
+import { useNavigate } from "react-router-dom";
 
-const PContainer = styled.div`
+export const PContainer = styled.div`
     margin-top:22px;
     margin-bottom:22px;
 `
 
-const MainP=styled.div`
+export const MainP=styled.div`
 color: #1D1927;
 text-align: center;
 font-family: Inter;
@@ -17,7 +18,7 @@ font-weight: 600;
 line-height: normal;
 `
 
-const MainLine = styled.div`
+export const MainLine = styled.div`
     width: 393px;
 height: 1px;
 background: #7A7485;
@@ -67,11 +68,19 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 transition: opacity 300ms ease-in-out;
-:hover{
-    opacity:0.5;
-}
 `
 function Main(){
+
+    const navigate = useNavigate();
+
+    const MoveSignup = () => {
+        navigate('/Signup');
+    }
+
+    const MoveSignin = () =>{
+        navigate('/Signin');
+    }
+
     return (
         <>
         <PContainer>
@@ -82,8 +91,8 @@ function Main(){
         <img src={Bugi} alt="부기" style={{width:'153px', height:'166px'}}/>
         </ImgContainer>
         <ButtonContainer>
-            <LoginBtn>로그인</LoginBtn>
-            <JoinBtn>회원가입</JoinBtn>
+            <LoginBtn onClick={MoveSignin}>로그인</LoginBtn>
+            <JoinBtn onClick={MoveSignup}>회원가입</JoinBtn>
         </ButtonContainer>
         </>
     )
