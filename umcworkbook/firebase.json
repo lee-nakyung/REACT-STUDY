@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site":"umc-project-netflix",
     "public": "build",
     "ignore": [
       "firebase.json",
