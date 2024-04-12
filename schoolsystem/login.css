@@ -1,0 +1,142 @@
+/* 기본 색상 변수 */
+:root {
+  --mainBlue: #4a88ff;
+  --white: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background-color: #e6f2ff;
+}
+
+.title {
+  color: var(--4, #9da5b3);
+  font-family: Pretendard;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.64px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  /* background-color: #e6f2ff; */
+}
+
+/* 기본 색상 변수 설정 */
+:root {
+  --bgColor: #333;
+  --navtext: #ccc;
+  --white: #fff;
+}
+
+.HeaderNavBar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #16162a;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+}
+
+.StyledNavLink {
+  display: flex;
+  color: var(--white);
+  font-size: 1.5vw;
+  font-weight: 500;
+  text-decoration: none;
+  align-items: center;
+}
+
+.StyledNavLink:hover {
+  opacity: 0.8;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 77%;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5vw;
+  color: #ffffff;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login {
+  border: none;
+  border: 0.2vw solid var(--6, #e4e8ef);
+  width: 7vw;
+  height: 2.8vw;
+  border-radius: 1vw;
+  background: #001b32;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1vw;
+  font-weight: 600;
+  line-height: 2.8vw;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.SignIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #16162a;
+  height: 30vw;
+}
+
+.SignInP {
+  font-size: 1.75vw;
+  font-weight: 700;
+  color: #fff;
+}
+
+.SignInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2vw;
+  padding: 2vw;
+}
+
+.InputSign {
+  width: 18.95vw;
+  height: 2.2vw;
+  margin-top: 1.2vw;
+  flex-shrink: 0;
+  border-radius: 1.2vw;
+  border: 0.2vw solid var(--6, #e4e8ef);
+  background: #16162a;
+  color: #fff;
+  padding-left: 1vw;
+  font-size: 0.8vw;
+
+  &::placeholder {
+    font-size: 0.8vw;
+  }
+}
