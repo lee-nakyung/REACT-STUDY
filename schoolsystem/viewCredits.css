@@ -1,0 +1,118 @@
+/* 기본 색상 변수 */
+:root {
+  --mainBlue: #4a88ff;
+  --softPink: #f8bbd0;
+  --softBlue: #bbdefb;
+  --softGray: #f5f5f5;
+  --white: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  background-color: #e6f2ff;
+}
+
+.title {
+  color: var(--4, #9da5b3);
+  font-family: Pretendard;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.64px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+  /* background-color: #e6f2ff; */
+}
+
+/* 기본 색상 변수 설정 */
+:root {
+  --bgColor: #333;
+  --navtext: #ccc;
+  --white: #fff;
+}
+
+.HeaderNavBar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #16162a;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+}
+
+.StyledNavLink {
+  display: flex;
+  color: var(--white);
+  font-size: 1.5vw;
+  font-weight: 500;
+  text-decoration: none;
+  align-items: center;
+}
+
+.StyledNavLink:hover {
+  opacity: 0.8;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 77%;
+  align-items: center;
+}
+
+.Section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.WholeContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-bottom: 7.5vw;
+  height: 50vw;
+  align-items: center;
+}
+
+.total {
+  color: var(--6, #4488ff);
+  font-family: Pretendard;
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 52.5px */
+  letter-spacing: -1.4px;
+}
+
+table {
+  border-radius: 10px;
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+th,
+td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+  text-align: center;
+}
+th:nth-child(2n),
+td:nth-child(2n) {
+  background-color: #bbdefb;
+}
+th:nth-child(2n + 1),
+td:nth-child(2n + 1) {
+  background-color: #e3f2fd;
+}
