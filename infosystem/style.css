@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.Header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #000000;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
+}
+
+.logo-and-nav {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+
+.auth-links {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+
+.StyledNavLink {
+  display: flex;
+  color: #ff7710;
+  font-size: 1.5vw;
+  font-weight: 500;
+  text-decoration: none;
+  align-items: center;
+}
+
+.StyledNavLink:hover {
+  opacity: 0.8;
+}
+
+.divider {
+  color: var(--navtext);
+  font-size: 1vw;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  font-size: 1.5vw;
+  line-height: 1.15vw;
+  font-weight: 500;
+  color: #ff7710;
+}
