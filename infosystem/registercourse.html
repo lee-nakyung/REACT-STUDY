@@ -1,0 +1,31 @@
+<!-- registerCourse.html -->
+<form th:action="@{/registerCourse}" th:object="${courseForm}" method="post">
+    <div>
+        <label for="courseId">Course ID:</label>
+        <input type="text" id="courseId" th:field="*{id}" required />
+        <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+    </div>
+    <div>
+        <label for="courseName">Course Name:</label>
+        <input type="text" id="courseName" th:field="*{name}" required />
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+    <div>
+        <label for="courseType">Course Type:</label>
+        <input type="text" id="courseType" th:field="*{type}" required />
+        <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></div>
+    </div>
+    <div>
+        <label for="professor">Professor:</label>
+        <input type="text" id="professor" th:field="*{professor}" required />
+        <div th:if="${#fields.hasErrors('professor')}" th:errors="*{professor}"></div>
+    </div>
+    <div>
+        <label for="credit">Credit:</label>
+        <input type="number" id="credit" th:field="*{credit}" required />
+        <div th:if="${#fields.hasErrors('credit')}" th:errors="*{credit}"></div>
+    </div>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>

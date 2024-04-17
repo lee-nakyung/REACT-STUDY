@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+</head>
+<body>
+<h1>Course Details</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Course ID</th>
+        <th>Year</th>
+        <th>Semester</th>
+        <th>Course Name</th>
+        <th>Course Type</th>
+        <th>Professor</th>
+        <th>Credit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${courseList}">
+        <td th:text="${course.id}">Course ID</td>
+        <td th:text="${course.year}">Year</td>
+        <td th:text="${course.semester}">Semester</td>
+        <td th:text="${course.name}">Course Name</td>
+        <td th:text="${course.type}">Course Type</td>
+        <td th:text="${course.professor}">Professor</td>
+        <td th:text="${course.credit}">Credit</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

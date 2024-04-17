@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>학사정보시스템</title>
+    <link rel="stylesheet" href="creditsearch.css" />
+  </head>
+  <body>
+    <div class="Header">
+      <div class="nav">
+        <div class="logo-and-nav">
+          <a href="index.html" style="text-decoration: none">
+            <img
+              src="hansungui.jpeg"
+              style="width: 10vw"
+              alt="Hansung University Logo"
+            />
+          </a>
+        </div>
+        <div class="buttonContainer">
+          <a href="login.html" style="text-decoration: none">
+            <button class="ApplyButton">로그인</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="Section">
+      <div class="WholeContainer">
+        <p class="total">학기별 이수 총 학점</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>년도</th>
+              <th>학기</th>
+              <th>총 이수 학점</th>
+              <th>상세보기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="entry : ${totalCreditsBySemester}">
+              <td th:text="${entry.key.split('-')[0].trim()}"></td>
+              <td th:text="${entry.key.split('-')[1].trim()}"></td>
+              <td th:text="${entry.value}"></td>
+              <td>
+                <a
+                  th:href="@{'/viewDetails?year=' + ${entry.key.split('-')[0].trim()} + '&semester=' + ${entry.key.split('-')[1].trim()}}"
+                  >상세보기</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 th:text="'Total credits: ' + ${totalCredit}"></h2>
+      </div>
+    </div>
+  </body>
+</html>

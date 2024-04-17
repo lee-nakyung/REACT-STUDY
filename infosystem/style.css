@@ -9,9 +9,9 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #000000;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  background-color: #ffffff;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
 }
 
 .nav {
@@ -27,23 +27,38 @@ body {
   align-items: center;
 }
 
-.auth-links {
+.buttonContainer {
   display: flex;
   gap: 1vw;
   align-items: center;
 }
 
-.StyledNavLink {
-  display: flex;
-  color: #ff7710;
-  font-size: 1.5vw;
-  font-weight: 500;
-  text-decoration: none;
-  align-items: center;
+.ApplyButton {
+  width: 6vw;
+  height: 3vw;
+  flex-shrink: 0;
+  border-radius: 0.8vw;
+  background: var(--Sub-color, #b7dcff);
+  color: var(--White, #000000);
+  text-align: center;
+
+  /* body/subtitle/subtitle_bold_16 */
+  font-family: Pretendard;
+  font-size: 1vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.StyledNavLink:hover {
-  opacity: 0.8;
+.frame-link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* Ensures the link is a block-level element */
+}
+
+.frame {
+  width: 100%; /* Ensure the frame takes full width if it doesn't already */
+  /* Ensure any additional necessary styles here */
 }
 
 .divider {
@@ -60,4 +75,78 @@ a {
   line-height: 1.15vw;
   font-weight: 500;
   color: #ff7710;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vw;
+  background-color: #b7dcff;
+  align-items: center;
+}
+
+.divcontainer {
+  margin-top: 3vw;
+  display: flex;
+  width: 40%;
+
+  height: 50vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame {
+  margin-bottom: 3vw;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  width: 80%;
+  height: 9vw;
+  border-radius: 0.25vw;
+  border: 1px solid #ffffff;
+  align-items: center;
+  display: flex;
+  padding-bottom: 1vw;
+}
+
+.creditsearch {
+  color: var(--Gray-Gray-900, #17191a);
+
+  /* Body/SubTitle/Medium */
+  font-family: Pretendard;
+  font-size: 1.8vw;
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 0.5vw;
+}
+
+.picture1 {
+  width: 10vw;
+  height: 9vw;
+  margin-left: 5.5vw;
+  border: 1px solid #cecdcd; /* 회색 테두리 */
+  border-radius: 50%; /* 동그란 모서리 */
+}
+
+.columncontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail {
+  color: var(--Gray-Gray-900, #17191a);
+  margin-top: 0.5vw;
+  /* Body/SubTitle/Medium */
+  font-family: Pretendard;
+  font-size: 1vw;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.frame:hover {
+  background-color: #d0eaff; /* Lighter shade for hover state */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+  transform: translateY(-2px); /* Slightly lift the frame */
+  transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
 }
